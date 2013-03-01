@@ -1,3 +1,6 @@
+def find_node(document)
+end
+
 def make_note(note_store, note_title, note_body, parent_notebook=nil)
  
   n_body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
