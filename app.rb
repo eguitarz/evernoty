@@ -39,7 +39,8 @@ get '/notes' do
 	token = session[:access_token]
 	client = EvernoteOAuth::Client.new(sandbox: true, token: token)
 	note_store = client.note_store
-	notebooks = note_store.listNotebooks(token)
-	p notebooks
-	'test'
+	@notebooks = note_store.listNotebooks(token)
+	p @notebooks
+
+	haml :notes
 end
