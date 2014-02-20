@@ -5,6 +5,8 @@ GEM
     evernote_oauth (0.2.3)
       evernote-thrift
       oauth (>= 0.4.1)
+    haml (4.0.3)
+      tilt
     oauth (0.4.7)
     rack (1.5.2)
     rack-protection (1.5.1)
@@ -20,4 +22,5 @@ PLATFORMS
 
 DEPENDENCIES
   evernote_oauth
+  haml
   sinatra
