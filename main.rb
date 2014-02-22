@@ -1,8 +1,12 @@
 require 'evernote_oauth'
+DEVELOPER_TOKEN = ENV['EVERNOTE_TOKEN']
 
 client = EvernoteOAuth::Client.new(
-	consumer_key: 'eguitarz',
-  consumer_secret: '5056cd90e0a9ce97',
-  sandbox: true
+	token: DEVELOPER_TOKEN,
+	sandbox: true
  )
-request_token = client.request_token(:oauth_callback => 'http://localhost:4000/')
+note_store = client.note_store
+notebooks = note_store.listNotebooks
+notebooks.each do |notebook|
+  puts "Notebook: #{notebook.name}";
+end
