@@ -5,6 +5,8 @@ client = EvernoteOAuth::Client.new(
 	token: DEVELOPER_TOKEN,
 	sandbox: true
  )
+
+puts 'Accessing...'
 note_store = client.note_store
 notebooks = note_store.listNotebooks
 notebooks.each do |notebook|
