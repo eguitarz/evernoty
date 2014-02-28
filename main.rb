@@ -1,4 +1,6 @@
 require 'evernote_oauth'
+require 'nokogiri'
+require 'open-uri'
 require "#{File.dirname(__FILE__)}/evernote"
 
 DEVELOPER_TOKEN = ENV['EVERNOTE_TOKEN']
@@ -15,4 +17,14 @@ notebooks.each do |notebook|
   puts "Notebook: #{notebook.name}";
 end
 
-make_note(note_store, 'Evernoty', '<h1>Test</h1>')
+uri = 'http://tw.yahoo.com'
+document = Nokogiri::HTML( open(uri) )
+document.css('script').remove
+text = ''
+document.at('body').children.each do |node|
+	text += node.inner_text
+end
+
+p text
+
+make_note(note_store, 'Evernoty', "#{text}")
