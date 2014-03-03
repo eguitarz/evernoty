@@ -1,4 +1,4 @@
-def find_node(document)
+def find_node(document, path)
 end
 
 def make_note(note_store, note_title, note_body, parent_notebook=nil)
