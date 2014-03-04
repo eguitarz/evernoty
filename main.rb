@@ -21,9 +21,8 @@ uri = 'http://tw.yahoo.com'
 document = Nokogiri::HTML( open(uri) )
 document.css('script').remove
 text = ''
-document.at('body').children.each do |node|
-	text += node.inner_text
-end
+node = find_node(document, 'body')
+text = node.inner_text
 
 p text
 
