@@ -1,4 +1,5 @@
-def find_node(document, path)
+def find_node(document, css_selector)
+  document.css(css_selector).first
 end
 
 def make_note(note_store, note_title, note_body, parent_notebook=nil)
