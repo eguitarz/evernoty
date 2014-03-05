@@ -17,6 +17,10 @@ notebooks.each do |notebook|
   puts "Notebook: #{notebook.name}";
 end
 
+ARGV.each do |a|
+	puts a
+end
+
 uri = 'http://tw.yahoo.com'
 document = Nokogiri::HTML( open(uri) )
 document.css('script').remove
