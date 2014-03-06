@@ -17,15 +17,12 @@ notebooks.each do |notebook|
   puts "Notebook: #{notebook.name}";
 end
 
-ARGV.each do |a|
-	puts a
-end
-
-uri = 'http://tw.yahoo.com'
+uri = ARGV[0] || 'http://tw.yahoo.com'
 document = Nokogiri::HTML( open(uri) )
 document.css('script').remove
 text = ''
-node = find_node(document, 'body')
+css = ARGV[1] || 'body'
+node = find_node(document, css)
 text = node.inner_text
 
 p text
